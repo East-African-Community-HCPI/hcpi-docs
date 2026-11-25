@@ -1,5 +1,5 @@
 site_name: HCPI Documentation
-site_url: https://kanyeceejaya.github.io/hcpi-docs/
+site_url: https://east-african-community-hcpi.github.io/hcpi-docs/
 site_description: Documentation for the HCPI (Cost Price Index) system
 site_author: HCPI Team
 
@@ -63,14 +63,19 @@ nav:
     - Mobile App (Flutter): understanding-the-codebase/mobile-app.md
     - Making Your First Edits: first-edits/index.md
   - Using the System (UI Walkthrough): using-the-system.md
+  - "Walkthrough: from a price to the index": guides/price-to-index-walkthrough.md
   - Changes:
     - Overview — What Changed (June 2026): changes/overview-june-2026.md
     - Dashboard & Index Overhaul (June 2026): changes/dashboard-index-overhaul.md
     - Validation, Observations & Imputation (June 2026): changes/validation-to-observations-and-imputation.md
+    - Collection Checks, Dashboard Colours & Centres (Nov 2026): changes/collection-checks-dashboard-centres.md
+    - Replacements, Price Upload, Map & Offline Mobile (Nov 2026): changes/replacements-upload-map-offline.md
+    - Speed & Efficiency (Nov 2026): changes/performance-nov-2026.md
   - Troubleshooting: troubleshooting.md
   - Next Steps:
     - Overview: next-steps/index.md
     - Updating a Country Deployment: next-steps/updating-deployments.md
+    - "Zanzibar: Moving to a New Server": next-steps/zanzibar-server-migration.md
     - Clearing All Observation Lines: next-steps/clear-observations.md
     - HTTPS with Apache: next-steps/https-apache.md
     - HTTPS with Nginx: next-steps/https-nginx.md

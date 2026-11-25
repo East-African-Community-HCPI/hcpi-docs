@@ -55,7 +55,7 @@ core and non-core to indicator cards
 - Code on replacement of items not sufficient.
 
 Now, some updates:
-swap blue and red, and add blue to key for matrix on dashboard. and have the key explain them
+✅ swap blue and red, and add blue to key for matrix on dashboard. and have the key explain them
 operational dashboard should show which consumption segments are so far behind in terms of low coverage of outlet-items or something like that which is relevant. 
 
 We need to review the computations that happen, and compare current process to how it should be. 
@@ -75,10 +75,91 @@ Link the matrix of events from
 # Data Collection App
 - When Questionnaires synced to app, they shouldcome with the questionnaire content, not coming afterwards. so that once sync happens they can work offline.
 - reorder questionnaire so that collection code is selected after price is entered, and we clear the price if temporarily missing or permanently missing is selected as the code. 
+- Provide a way to filter by current period, provide a way for device to only show questionnaires
 
 - Pulish a version of the APK on the servers so that it can be used to ensure data collectors are always on the right version
 - Publish to play store to replace the existing entry 
-- 
+
+
+
+## 
+- Consider serving some server information for admins to be able to see how resources are doing, what is causing load, etc
+
+- Promote to observations view should include item code column
+
+On Outliers/inliers review, Add option to Reject or approve the items, either singular or in bulk. rejected not included in calculation, but appear in a report
+
+In A reports section, maybe on operations dashboard, to have a repot of history of processing/logs/ how cpi wa calculated per segment per period and per user.
+
+After imputation, outliers should still be higlhihted. their state should not go away since it feeds alot.
+
+No un-imputed. if item cannot be imputed from relative, use same item in another segment. if not possible, then use items in another EA. follow standard practice. then the default rate to refuse to impute from object should be linent, maybe as long as like 20 or 30% of objects have prices ocmputed in that group?  
+
+Index running should have filters to run for a given collection period or all periods( the way it does right now)
+
+On dashboard, Why provisional column in CPI by division? we can remove it.
+
+The progress field on Data Validations never changes, we need to update it as status changes.
+
+Add bulk select and group actions to screen of promotion to observations / when uploading items in importation
+
+Review permissions for Validatio nand promotion to Observation to ensure that only allowed people work on them.
+
+
 
 ssh ocgs_ubuntu@hcpi.ocgs.go.tz -p 7575
 
+
+
+# Meeting with Julie
+
+## Weights & classification
+- ✅ **Weight totals:** Check that weights sum to 1000 at every level (EA → sub-class → … → division). Flag any level that doesn't.
+- ✅ **Special index sets:** Group special indices into sets (e.g. Core / Non-core). An item can belong to only one index per set. Flag sets that don't total 1000.
+- ✅ **`is_standard` toggle:** Warn the user when it's switched on, because it changes how the item is collected and standardised.
+
+
+## Elementary Aggregate page
+- ✅ Rename **Code** to **EA Code** and hide the current EA code column. It shouldn't be summed when grouping.
+- ✅ Add the **With / Without weights** filter to the higher-level pages too.
+
+## Collection
+- ✅ **Range check at entry:** Flag out-of-range prices as they're entered, in both the web app and the mobile app.
+- ✅ **Twice-collected items:** Some non-standard items are priced twice (e.g. 2 weeks). Standardise each price by weight, then use the average. Add a flag for these items and split them into a separate questionnaire (once vs. twice per period).
+- ✅ **Fixed basket:** The same product specs are priced for the whole basket period (~5 years).
+
+## Replacements
+- ✅ Review the replacement flow for items and outlets. One outlet can be replaced by 1 or 2 outlets. work on a replacement wizard.
+- ✅ **Replacement computation:** In month 1, compute the relative with the old product's imputed price and capture the new product's price. In month 2, switch to the new product, which now has 2 prices.
+
+## Validation
+- ✅ **Inlier re-flagging:** Once an inlier is marked OK, don't flag it again for 6 months.
+- ✅ **Imputed prices report:** Add a report of imputed prices. _Confirm what "resend" meant._
+- ✅ validation is also currently vague. It should be cleareer. able to add a note for each or something, revie wand think of the best way to handle eahc of the different kinds of validatio nbesides just relying on seeing the oclours highlgihted and proceeding!! can we see details for any of them? can they make somewhere to mark each by each as okay? can ther ebe a key for the colours somewhere? how can the different types of validatio nbe done more clearly, and in a much better way?  Think of other ways to imporve things. 
+
+## Dashboard & access
+- ✅ **Colours:** Don't mix colour meanings. Add a key or legend button that explains each colour.
+- ✅ **Centre scoping:** Users see only their centre on data screens. On the dashboard they see everything, filtered to their area by default.
+- ✅ How can we improve controls on dashboard? zoom in zoom out? can we add a map? claude memories on here know where maps are
+
+## Exports
+- ✅ **Export Excel Workbook** (Indices) already includes the price sheet, so no separate Observation Lines export is needed. Add a **raw data** sheet that has collected data
+- ✅ Flag imputed prices in the exported price sheet.
+
+## Testing
+- ✅ Add an option to upload raw outlet prices so imputation, validation and the rest of the pipeline can be tested.
+
+## Mobile App
+- ✅ sync button that can sync down all assigned quesionnaries s othat ocllection can happen offline
+- ✅ Better form inputs and validation on the go.
+
+
+--- new weights
+
+when selecting items, any computation, it should always show those with wieghts. 
+- to simplify addition to special index categories, when adding fresh items, let us have a filter to only eas that have not yet been selected to be part of this 
+- Fixed basket for the period. each of the observstions rexplected/ outlet items should never change for the given items, i.e. if tomatoes being collected from 3 outlets, should always calcluate fro mthe 3 outlets.
+- When validatin prices, offer option for people to enter the data, so that calucations for standardisation can be done, ensure it is recorded right so that they can work well.  Also, a price changed there should be tracked in audit log and proper so that we know that we can tell a price changed at that level from a price that was captured earlier
+-  
+
+- Lines that could not be imputed (no price) will be excluded from the index. Finalize this validation?
