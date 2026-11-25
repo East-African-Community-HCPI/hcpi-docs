@@ -1,0 +1,3248 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the HCPI (Cost Price Index) system">
+      
+      
+        <meta name="author" content="HCPI Team">
+      
+      
+        <link rel="canonical" href="https://east-african-community-hcpi.github.io/hcpi-docs/next-steps/zanzibar-server-migration/">
+      
+      
+        <link rel="prev" href="../updating-deployments/">
+      
+      
+        <link rel="next" href="../clear-observations/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Zanzibar: Moving to a New Server - HCPI Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zanzibar-moving-hcpi-to-a-new-server" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="HCPI Documentation" class="md-header__button md-logo" aria-label="HCPI Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HCPI Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Zanzibar: Moving to a New Server
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HCPI Documentation" class="md-nav__button md-logo" aria-label="HCPI Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HCPI Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/getting-the-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting the Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/git-remotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Remotes (EAC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exporting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exporting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extraction/linux-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From a Linux Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/windows-wsl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows WSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/windows-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/cpi-explained/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPI Explained
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/cpi-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPI Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/how-calculations-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How the Calculations Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/data-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Flow Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with the Code
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with the Code
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../understanding-the-codebase/odoo-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Odoo Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../understanding-the-codebase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding the Codebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../understanding-the-codebase/module-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module Deep Dives
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module Deep Dives
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/reference-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference Data (COICOP, Items, Brands)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/outlets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outlets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/data-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/indices-dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indices & Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/country-overlay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Country Overlays (UG, KE, TZ, ZAR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure & Third-party
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../understanding-the-codebase/country-variants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Country Variants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../understanding-the-codebase/mobile-app/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mobile App (Flutter)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-edits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Making Your First Edits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-the-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using the System (UI Walkthrough)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/price-to-index-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough: from a price to the index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Changes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changes/overview-june-2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview — What Changed (June 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changes/dashboard-index-overhaul/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard & Index Overhaul (June 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changes/validation-to-observations-and-imputation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation, Observations & Imputation (June 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changes/collection-checks-dashboard-centres/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collection Checks, Dashboard Colours & Centres (Nov 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changes/replacements-upload-map-offline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Replacements, Price Upload, Map & Offline Mobile (Nov 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changes/performance-nov-2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Speed & Efficiency (Nov 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Next Steps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Next Steps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating-deployments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating a Country Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zanzibar: Moving to a New Server
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zanzibar: Moving to a New Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-facts-to-collect-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Facts to collect first
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-key-decision-keep-the-same-web-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Key decision: keep the same web address
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-timeline-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Timeline at a glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-prepare-the-new-server-t-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Prepare the new server (T-14)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-trial-migration-t-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Trial migration (T-7)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-pre-cutover-t-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Pre-cutover (T-2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-cutover-day-t-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Cutover day (T-0)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-aftercare-t1-to-t30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 5: Aftercare (T+1 to T+30)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-and-lessons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes and lessons
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clear-observations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clearing All Observation Lines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../https-apache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTPS with Apache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../https-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTPS with Nginx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_2" id="__nav_12_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup & Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup & Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/day1/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to HCPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/day1/server-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/day1/dependencies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/day1/postgresql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PostgreSQL Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/day1/virtualenv-install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Environment & HCPI Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/day1/dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/day1/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/day1/user-administration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Administration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/day2/python-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python for HCPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_4" id="__nav_12_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building an HCPI Module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Building an HCPI Module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/module/part1-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1: Models, Fields, Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/module/part2-views/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2: Views & UX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/module/part3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3: Rights & Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-facts-to-collect-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Facts to collect first
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-key-decision-keep-the-same-web-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Key decision: keep the same web address
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-timeline-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Timeline at a glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-prepare-the-new-server-t-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Prepare the new server (T-14)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-trial-migration-t-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Trial migration (T-7)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-pre-cutover-t-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Pre-cutover (T-2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-cutover-day-t-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Cutover day (T-0)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-aftercare-t1-to-t30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 5: Aftercare (T+1 to T+30)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-and-lessons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes and lessons
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="zanzibar-moving-hcpi-to-a-new-server">Zanzibar: Moving HCPI to a New Server</h1>
+<p>This is the plan for moving Zanzibar's HCPI from its current server to a new one, with no data loss and as little downtime as possible. It describes <strong>what</strong> we do and in <strong>what order</strong>. For the individual commands it points to the existing guides:</p>
+<ul>
+<li><a href="../../extraction/linux-export/">Exporting HCPI from a Linux Server</a>: getting the code, database and filestore off the old server</li>
+<li><a href="../../installation/linux/">Linux Server Installation</a>: building the new server and restoring onto it</li>
+<li><a href="../https-nginx/">HTTPS with Nginx</a> / <a href="../https-apache/">HTTPS with Apache</a>: the public web address and certificate</li>
+</ul>
+<div class="admonition abstract">
+<p class="admonition-title">The plan in one paragraph</p>
+<p>Build the new server and do a <strong>trial migration</strong> onto it while the old server keeps running normally. Once the trial passes, pick a cutover window. In that window the phones sync everything, the old server is stopped, a <strong>final</strong> copy is taken and restored on the new server, and the domain name is pointed at the new server. The old server is left switched off but intact for a few weeks, so we can go back to it if something goes wrong.</p>
+</div>
+<h2 id="0-facts-to-collect-first">0. Facts to collect first</h2>
+<p>Fill this table in before anything else. Every later step depends on it.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Old server</th>
+<th>New server</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hostname / IP address</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SSH user and port</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Operating system (<code>lsb_release -a</code>)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PostgreSQL version (<code>psql --version</code>)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Python version</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Odoo version / commit (Export guide, Step 11)</td>
+<td>18.0 /</td>
+<td>18.0</td>
+</tr>
+<tr>
+<td>Install folder (<code>INSTALL</code>)</td>
+<td>e.g. <code>/opt/hcpi</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Config file path</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Database name (<code>db_name</code>)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>User that runs Odoo (<code>RUN_USER</code>)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Filestore location</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Size of database + filestore (<code>du -sh</code>)</td>
+<td></td>
+<td>free disk:</td>
+</tr>
+<tr>
+<td>Public web address (domain)</td>
+<td></td>
+<td><em>(same, see §1)</em></td>
+</tr>
+<tr>
+<td>Who manages DNS for that domain</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reverse proxy (Nginx / Apache / none) and certificate</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Outgoing mail server configured in Odoo?</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Code branch</td>
+<td><code>zar_18</code></td>
+<td><code>zar_18</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">PostgreSQL version</p>
+<p>The new server's PostgreSQL must be the <strong>same or newer</strong> major version than the old server's. A dump from PostgreSQL 16 will not restore into PostgreSQL 14.</p>
+</div>
+<h2 id="1-key-decision-keep-the-same-web-address">1. Key decision: keep the same web address</h2>
+<p><strong>Recommended: keep the same domain name and only change where it points (DNS).</strong></p>
+<p>The reason is the mobile app. The Zanzibar server address (<code>ZAR_DOMAIN</code>) is <strong>built into the Flutter app</strong> (<a href="../../understanding-the-codebase/mobile-app/">Mobile App, §5</a>). If the address changes, every collector's phone needs a new app build before it can connect again. If the domain stays the same, the phones notice nothing.</p>
+<p>If the address <em>must</em> change, add these to the plan:</p>
+<ul>
+<li>Build and distribute a new APK with the new <code>ZAR_DOMAIN</code> <strong>before</strong> the cutover.</li>
+<li>After the restore, update <code>web.base.url</code> in <strong>Settings → Technical → System Parameters</strong> on the new server.</li>
+<li>Tell all web users the new address.</li>
+</ul>
+<h2 id="2-roles">2. Roles</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Who</th>
+<th>Responsibilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zanzibar IT</td>
+<td><em>(name)</em></td>
+<td>Server access, new server provisioning, DNS, firewall</td>
+</tr>
+<tr>
+<td>HCPI support</td>
+<td><em>(name)</em></td>
+<td>Export / restore, configuration, verification</td>
+</tr>
+<tr>
+<td>HCPI lead / supervisors</td>
+<td><em>(name)</em></td>
+<td>Choose the window, tell users and collectors, sign off on verification</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-timeline-at-a-glance">3. Timeline at a glance</h2>
+<table>
+<thead>
+<tr>
+<th>When</th>
+<th>Phase</th>
+<th>Old server</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T-14 days</td>
+<td>Prepare the new server</td>
+<td>Running normally</td>
+</tr>
+<tr>
+<td>T-7 days</td>
+<td>Trial migration and testing</td>
+<td>Running normally</td>
+</tr>
+<tr>
+<td>T-2 days</td>
+<td>Lower DNS TTL; announce the window</td>
+<td>Running normally</td>
+</tr>
+<tr>
+<td><strong>T-0</strong></td>
+<td><strong>Cutover</strong> (allow ~half a day)</td>
+<td>Stopped</td>
+</tr>
+<tr>
+<td>T+1 to T+14</td>
+<td>Aftercare, daily checks</td>
+<td>Off but kept intact</td>
+</tr>
+<tr>
+<td>T+30</td>
+<td>Decommission old server</td>
+<td>Wiped</td>
+</tr>
+</tbody>
+</table>
+<p>Pick a cutover day <strong>outside the active price-collection period</strong> and away from index-computation deadlines.</p>
+<h2 id="phase-1-prepare-the-new-server-t-14">Phase 1: Prepare the new server (T-14)</h2>
+<p>Old server: untouched.</p>
+<ol>
+<li><strong>Provision</strong> the new machine (Ubuntu LTS recommended), with enough disk for at least <strong>3×</strong> the database and filestore combined (the data, the export files, and growth).</li>
+<li><strong>Install system packages, PostgreSQL, and create the DB user</strong>: <a href="../../installation/linux/">Linux install</a>, Steps 1–4.</li>
+<li><strong>Clone Odoo 18.0 and create the Python venv</strong>: Linux install, Steps 5–6. Use the <strong>same Python minor version</strong> as the old server if possible.</li>
+<li><strong>Firewall</strong>: allow SSH, 80 and 443 only. Odoo's port (9201) should not be open to the public once the reverse proxy is in place.</li>
+<li><strong>Install the reverse proxy</strong> (Nginx or Apache, matching what the old server uses) but <strong>do not request the certificate yet</strong>. The domain still points at the old server (see Phase 4).</li>
+<li><strong>Set up the <code>hcpi</code> systemd service</strong>: Linux install, <em>systemd</em> section. Keep it <strong>disabled</strong> for now.</li>
+<li><strong>Confirm the new server can reach the old one</strong> over SSH (for the server-to-server copy in Phase 4). If it can't, the files go through a laptop instead (Export guide, Step 9).</li>
+</ol>
+<h2 id="phase-2-trial-migration-t-7">Phase 2: Trial migration (T-7)</h2>
+<p>This is a full rehearsal while the old server keeps running. It shows that the process works and how long each step takes. <strong>Write down the time each step takes</strong>, because that sets the length of the real cutover window.</p>
+<ol>
+<li><strong>Export from the old server</strong> while it runs: <a href="../../extraction/linux-export/">Export guide</a>, Steps 1–8. This produces <code>hcpi.dump</code>, <code>hcpi-files.zip</code> and <code>hcpi-filestore.zip</code>.</li>
+<li><strong>Copy the three files to the new server</strong> (see Phase 4, step 5 for the command).</li>
+<li><strong>Unpack the code and config</strong>: Linux install, Step 5, <em>Option B</em>. Then check:<ul>
+<li><code>custom/HCPI</code> is a git checkout of <strong><code>zar_18</code></strong> (<code>git -C custom/HCPI branch</code>). Future updates depend on this (<a href="../updating-deployments/">Updating a Country Deployment</a>).</li>
+<li><code>hcpi.conf</code> has the right paths, <code>db_password</code>, and <code>server_wide_modules = base,web,queue_job</code> (<a href="../../modules/infrastructure/">queue_job</a>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Stop the trial server from acting on its own.</strong> In <code>hcpi.conf</code>, temporarily set:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">max_cron_threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span>
+</code></pre></div>
+<p>so scheduled actions (emails, automated jobs) don't run against the copied data and send duplicate emails to real users. Remove this line before the real cutover.</p>
+</li>
+<li>
+<p><strong>Restore the database and filestore</strong>: Linux install, Step 8, <em>Option A</em> (A1 and A2). Put the filestore under the <strong>user the service runs as</strong>.</p>
+</li>
+<li><strong>Start the service</strong> and check the log (<code>/opt/hcpi/log/hcpi.log</code>) for errors.</li>
+<li><strong>Test it</strong> by browsing to <code>http://&lt;new-server-ip&gt;:9201</code> from inside the network (or through an SSH tunnel) and running the <a href="#verification-checklist">verification checklist</a> below. The mobile-app items can wait until Phase 4.</li>
+<li><strong>Fix whatever came up</strong>, update this document, and repeat the trial if any step had to change.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Go / no-go</p>
+<p>Don't schedule the cutover until a trial has passed the whole checklist without manual fixes.</p>
+</div>
+<h2 id="phase-3-pre-cutover-t-2">Phase 3: Pre-cutover (T-2)</h2>
+<ol>
+<li><strong>Lower the DNS TTL</strong> for the HCPI domain to 300 seconds (5 minutes). DNS changes then take effect quickly on the day, and a rollback is just as quick.</li>
+<li><strong>Announce the window</strong> to all web users and collectors: date, start time, expected duration, and "don't enter data during this window".</li>
+<li><strong>Tell collectors to sync their phones before the window starts.</strong> Observations recorded offline stay queued on the phone until they sync (see <a href="../../understanding-the-codebase/mobile-app/">Mobile App, §7</a>). Anything that reaches the old server <em>after</em> the final export is lost.</li>
+<li><strong>Confirm access</strong>: SSH to both servers, sudo, DNS control panel, and the Odoo admin login.</li>
+</ol>
+<h2 id="phase-4-cutover-day-t-0">Phase 4: Cutover day (T-0)</h2>
+<p><strong>Old server, start of the window:</strong></p>
+<ol>
+<li><strong>Check the phones are synced</strong>: in HCPI, confirm the latest observations from each collection centre have arrived. Follow up with any collector whose data is missing.</li>
+<li><strong>Check that no background jobs are running</strong>: <strong>Queue Jobs</strong> menu. Wait until nothing is <em>Started</em> or <em>Enqueued</em>. A job that was running when the copy was taken stays stuck on the new server.</li>
+<li>
+<p><strong>Stop Odoo on the old server</strong> so nothing new can be written:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>hcpi<span class="w">        </span><span class="c1"># or whatever the service is called</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>hcpi<span class="w">     </span><span class="c1"># so a reboot doesn&#39;t bring it back</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Take the final export</strong>: <a href="../../extraction/linux-export/">Export guide</a>, Steps 3–8 (same as the trial).</p>
+</li>
+</ol>
+<p><strong>New server:</strong></p>
+<ol>
+<li>
+<p><strong>Copy the files directly from the old server</strong> and check they arrived intact:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/migration
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>rsync<span class="w"> </span>-avP<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;ssh -p &lt;ssh_port&gt;&quot;</span><span class="w"> </span>olduser@&lt;old-server&gt;:/tmp/hcpi-export/<span class="w"> </span>~/migration/
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Checksums must match on both servers</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sha256sum<span class="w"> </span>~/migration/*<span class="w">                         </span><span class="c1"># on the new server</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>ssh<span class="w"> </span>olduser@&lt;old-server&gt;<span class="w"> </span><span class="s2">&quot;sha256sum /tmp/hcpi-export/*&quot;</span><span class="w">   </span><span class="c1"># old server</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Clear out the trial data</strong>: stop the service, drop and recreate the database, and delete the trial filestore (Linux install, Step 8, <em>"Re-running the restore"</em>).</p>
+</li>
+<li><strong>Restore the final database and filestore</strong>: Linux install, Step 8, <em>Option A</em>.</li>
+<li>
+<p><strong>Remove <code>max_cron_threads = 0</code></strong> from <code>hcpi.conf</code>, then <strong>enable and start</strong> the service:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>hcpi
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>hcpi
+</code></pre></div>
+</li>
+<li>
+<p><strong>Run the <a href="#verification-checklist">verification checklist</a></strong> using the server IP, before any users are pointed at it.</p>
+</li>
+</ol>
+<p><strong>Switch over:</strong></p>
+<ol>
+<li><strong>Point the DNS record</strong> for the HCPI domain at the new server's IP.</li>
+<li><strong>Get the HTTPS certificate</strong> on the new server once DNS resolves to it (<code>dig +short &lt;domain&gt;</code> returns the new IP): <a href="../https-nginx/">Nginx</a> / <a href="../https-apache/">Apache</a>.</li>
+<li><strong>Test from outside</strong>: <code>https://&lt;domain&gt;</code> loads with a valid padlock, and you can log in.</li>
+<li><strong>Test with one phone</strong>: log in from the mobile app, download the assignments, submit one test observation, and confirm it appears on the server.</li>
+<li><strong>Announce that HCPI is back.</strong> Raise the DNS TTL back to its normal value.</li>
+</ol>
+<h2 id="verification-checklist">Verification checklist</h2>
+<p>Run this in the trial (Phase 2) and again on the day (Phase 4). Record the results.</p>
+<p><strong>Record counts must match the old server.</strong> Run on <strong>both</strong> servers and compare:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql<span class="w"> </span>-d<span class="w"> </span>&lt;db_name&gt;<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="s2">SELECT &#39;users&#39; AS what, count(*) FROM res_users</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s2">UNION ALL SELECT &#39;attachments&#39;,          count(*) FROM ir_attachment</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s2">UNION ALL SELECT &#39;outlets&#39;,              count(*) FROM hcpi_outlet</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s2">UNION ALL SELECT &#39;questionnaires&#39;,       count(*) FROM hcpi_data_collection</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="s2">UNION ALL SELECT &#39;collection centres&#39;,   count(*) FROM zar_collection_center;&quot;</span>
+</code></pre></div>
+<p>(Run it on the old server right after the final export, before it's switched off.)</p>
+<p><strong>Functional checks:</strong></p>
+<ul>
+<li>[ ] Admin and an ordinary user can log in</li>
+<li>[ ] Outlets list loads, with regions, districts and collection centres filled in</li>
+<li>[ ] A questionnaire with <strong>photos/attachments</strong> opens and the images display (a broken image means a filestore problem)</li>
+<li>[ ] The latest observations from before the cutover are present</li>
+<li>[ ] An <strong>index computation</strong> runs to completion (this proves <code>queue_job</code> is working)</li>
+<li>[ ] The dashboard loads and shows the same figures as on the old server for the last published period</li>
+<li>[ ] Reports / exports download</li>
+<li>[ ] <strong>Settings → Technical → System Parameters → <code>web.base.url</code></strong> shows the correct public address</li>
+<li>[ ] Outgoing mail (if used) sends a test email</li>
+<li>[ ] Scheduled actions are active (<strong>Settings → Technical → Scheduled Actions</strong>)</li>
+<li>[ ] <em>(day only)</em> HTTPS certificate is valid and HTTP redirects to HTTPS</li>
+<li>[ ] <em>(day only)</em> A phone logs in, syncs, and submits an observation</li>
+</ul>
+<h2 id="rollback-plan">Rollback plan</h2>
+<p>The old server is stopped, <strong>not changed</strong>, so we can always go back to it.</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Checks fail <strong>before</strong> the DNS switch (step 9)</td>
+<td>Re-enable and start Odoo on the old server and tell users the move is postponed. No data lost.</td>
+</tr>
+<tr>
+<td>Serious problem found <strong>soon after</strong> the switch, before real data is entered</td>
+<td>Point DNS back to the old server, start Odoo there, and investigate.</td>
+</tr>
+<tr>
+<td>Problem found <strong>after users have entered data</strong> on the new server</td>
+<td>Prefer fixing forward on the new server. Rolling back now would lose the new entries. Only roll back if the lead agrees, and export the new entries first.</td>
+</tr>
+</tbody>
+</table>
+<p>Agree who makes the go/no-go call <strong>before</strong> the day. By default it's the HCPI lead, on advice from HCPI support.</p>
+<h2 id="phase-5-aftercare-t1-to-t30">Phase 5: Aftercare (T+1 to T+30)</h2>
+<ol>
+<li><strong>Daily checks for the first week</strong>: the log has no new errors, index jobs complete, and phones are syncing.</li>
+<li><strong>Set up automatic backups on the new server</strong>: a nightly <code>pg_dump</code> and a copy of the filestore, kept <strong>off the server</strong>. Test a restore from it once.</li>
+<li><strong>Keep the old server switched off but intact</strong> for at least <strong>2 weeks</strong> (until after the next index publication, if possible).</li>
+<li><strong>Decommission</strong> at T+30, once the lead signs off: keep one final archived export, then wipe the old server's disks. Delete the leftover export files (<code>/tmp/hcpi-export</code>, <code>~/migration</code>) on both servers. They contain the full database and the admin password.</li>
+<li><strong>Update the records</strong>: this document, the server table in §0, and anyone who keeps a server list (EAC Secretariat, mobile app maintainers).</li>
+</ol>
+<h2 id="notes-and-lessons">Notes and lessons</h2>
+<p><em>Add anything learned during the trial or cutover here.</em></p>
+<p><strong>Trial migration, November 2026:</strong></p>
+<ul>
+<li><strong>Check how traffic actually reaches the server before planning a DNS change.</strong> In Zanzibar the public name resolves to the office firewall's public IP. The firewall forwards the Odoo port straight to the server and sends port 80 to a separate IIS reverse proxy. The switch is therefore a change to the <strong>firewall port-forward and the proxy target</strong>, not to DNS. A short <code>tcpdump</code> on the Odoo port shows which <code>Host</code> headers and proxies are in use.</li>
+<li><strong>New Ubuntu releases ship a Python Odoo 18 doesn't support</strong> (Ubuntu 26.04 has Python 3.14). Install the old server's exact Python version with <a href="https://docs.astral.sh/uv/">uv</a> (<code>uv python install 3.13.5</code>, then <code>uv venv --python 3.13.5</code>) and install the old venv's <code>pip freeze</code>. Only <code>lxml</code> had to move from 5.2.1 to 5.3.2, because there is no Python 3.13 wheel for 5.2.1.</li>
+<li>A PostgreSQL 14 dump restored into PostgreSQL 18 with no errors (<code>pg_restore --no-owner --role=&lt;odoo user&gt;</code>).</li>
+<li>Keep the same service name, user, paths and ports as the old server, so the network change is only an IP swap.</li>
+<li>Export, copy, restore and start took about <strong>2 minutes</strong> for a 1.4 GB database. The <code>hcpi-export.sh</code> / <code>hcpi-import.sh</code> scripts in the docs repository (<code>tools/zanzibar-migration/</code>) do the whole cycle and compare record counts.</li>
+<li>Check that existing backups are real. Look at the file sizes: a few KB means an error page, not a database.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../updating-deployments/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Updating a Country Deployment">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Updating a Country Deployment
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../clear-observations/" class="md-footer__link md-footer__link--next" aria-label="Next: Clearing All Observation Lines">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Clearing All Observation Lines
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.expand", "navigation.footer", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
